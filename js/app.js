@@ -1,15 +1,6 @@
-// Forces GH Pages not to cache pages... they set overly aggressive future expires-headers
 $(document).ready(function(){
-    // grab each link
-    $('a').each(function(){
-        var date = new Date;
-        // add the current unix timestamp in microseconds to the the link href as a query string
-        this.href = this.href + '?' + date.getTime();
-    });
-
 
 // URL Comparisons for active link highlighting
-
 	function parseURL(url) {
 	    var a =  document.createElement('a');
 	    a.href = url;
@@ -40,7 +31,7 @@ $(document).ready(function(){
 
 // turns current URL into a query-able object
 	var currentPage = parseURL(window.location);  
-// when hitting "http://nys-its.github.io/open-data-handbook" there is not a page.html - this highlights the first tab in that case
+// when hitting the root document there is not a [name].html - this highlights the first tab in that case
 	if (currentPage.file == "") {  
 		$('.home-page').addClass("current");
 	}
